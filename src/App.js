@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { compose, withProps, withStateHandlers } from 'recompose';
 import logo from './logo.svg';
 import './App.css';
@@ -7,7 +7,10 @@ import DayLink from './components/DayLink';
 import DayView from './components/DayView';
 import Averages from './components/Averages';
 
-const App = ({ selectedDay, store, onClick }) => (
+class App extends Component {
+  render () {
+    const ({ selectedDay, store, onClick }) = this.props;
+  }
   <div className="App">
     <div className="App-header">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
