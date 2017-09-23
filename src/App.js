@@ -5,39 +5,49 @@ import './App.css';
 import store from './store';
 import DayLink from './components/DayLink';
 import DayView from './components/DayView';
+import Averages from './components/Averages';
 
-const App = ({ selectedDay, store, onClick }) => {
-  console.log(selectedDay);
-  return (
-    <div className="App">
-      <div className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h2>Testing!</h2>
-      </div>
-      <p>
+const App = ({ selectedDay, store, onClick }) => (
+  <div className="App">
+    <div className="App-header">
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      <h2>Tiny Motorcycle Stats</h2>
+    </div>
+    <p>
 
-      </p>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-sm-2'>
-            {store.map(item => (
-              <DayLink
-                item={item}
-                key={item.id}
-                onClick={onClick}
-              />
-            ))}
-          </div>
-          <div className='col-sm-10'>
-            <DayView
-              item={store.find(item => item.id === selectedDay)}
+    </p>
+    <p>
+      This is an example app to experiment with React.
+    </p>
+    <p>
+      Right now it's drawing from a static dataset - a file logging my gas fillups
+      on my '94 Honda Nighthawk.
+    </p>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-sm-2'>
+          <h4>Dates</h4>
+          {store.map(item => (
+            <DayLink
+              item={item}
+              key={item.id}
+              onClick={onClick}
+              selectedDay={selectedDay}
             />
-          </div>
+          ))}
         </div>
+        <DayView
+          item={store.find(item => item.id === selectedDay)}
+          className='col-sm-5'
+        />
+        <Averages
+          store={store}
+          className='col-sm-5'
+        />
       </div>
     </div>
-  );
-}
+  </div>
+);
 
 export default compose(
   withProps(() => ({

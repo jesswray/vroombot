@@ -1,14 +1,17 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { withHandlers } from 'recompose';
 
-const DayLink = ({ item, handleClick }) => (
+const DayLink = ({ item, handleClick, key, selectedDay }) => (
   <div>
-    <button
+    <Button
       className='DayLink'
+      key={key}
       onClick={handleClick}
+      active={item.id === selectedDay}
     >
       {item.date.month}-{item.date.day}-{item.date.year}
-    </button>
+    </Button>
   </div>
 );
 

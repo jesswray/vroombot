@@ -9,7 +9,7 @@ const store = [
     gallons: 2.8476,
     ppg: 2.529,
     price: 7.20,
-    miles: 204,
+    trip: 204,
     odometer: 5557,
   },
   {
@@ -22,7 +22,7 @@ const store = [
     gallons: 2.8476,
     ppg: 2.529,
     price: 7.20,
-    miles: 183,
+    trip: 183,
     odometer: 5740,
   },
   {
@@ -35,7 +35,7 @@ const store = [
     gallons: 2.508,
     ppg: 2.909,
     price: 7.30,
-    miles: 183,
+    trip: 183,
     odometer: 5923,
   },
   {
@@ -49,7 +49,7 @@ const store = [
     ppg: null,
     price: 10,
     trip: 228,
-    odometer: 61519,
+    odometer: 6151,
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const store = [
     ppg: 2.559,
     price: 8.89,
     trip: 203,
-    odometer: 63550,
+    odometer: 6355,
   },
 ];
 

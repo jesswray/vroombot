@@ -1,7 +1,8 @@
 import React from 'react';
 
-const DayView = ({ item }) => (
-  <div className='DayView'>
+const DayView = ({ item, className }) => (
+  <div className={className}>
+    <h4>On this day ... </h4>
     <div>
       Miles: {item.trip}
     </div>
