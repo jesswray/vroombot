@@ -11,7 +11,7 @@ const averageMPG = (store) => {
   // Add up cash trip miles to be deducted from total.
   const excludedMiles = store.filter(item => !item.gallons).reduce((acc, item) => acc + item.trip, 0);
   const totalGallons = store.reduce((acc, item) => acc + item.gallons, 0);
-  const validMiles = endMileage(store) - startMileage(store);
+  const validMiles = endMileage(store) - startMileage(store) - excludedMiles;
   return validMiles/totalGallons;
 };
 
