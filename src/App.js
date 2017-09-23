@@ -14,16 +14,26 @@ const App = ({ selectedDay, store, onClick }) => {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <h2>Testing!</h2>
       </div>
-      <div className="stats">
-        Menu: {store.map(item => (
-          <DayLink
-            item={item}
-            key={item.id}
-            onClick={onClick}
-          />
-        ))}
-        <DayView
-          item={store.find(item => item.id === selectedDay)} />
+      <p>
+
+      </p>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-sm-2'>
+            {store.map(item => (
+              <DayLink
+                item={item}
+                key={item.id}
+                onClick={onClick}
+              />
+            ))}
+          </div>
+          <div className='col-sm-10'>
+            <DayView
+              item={store.find(item => item.id === selectedDay)}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
