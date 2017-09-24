@@ -1,46 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { compose, withProps, withStateHandlers } from 'recompose';
-import logo from './logo.svg';
 import './App.css';
 import store from './store';
 import DayLink from './components/DayLink';
 import DayView from './components/DayView';
 import Averages from './components/Averages';
 
-class App extends Component {
-  render () {
-    const ({ selectedDay, store, onClick }) = this.props;
-  }
+const App = ({ store, onClick, selectedDay }) => (
   <div className="App">
     <div className="App-header">
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      <h2>Tiny Motorcycle Stats</h2>
+      <h2>Example</h2>
     </div>
-    <p>
-
-    </p>
     <p>
       This is an example app to experiment with React.
     </p>
     <p>
-      Right now it's drawing from a static dataset - a file logging my gas fillups
+      Right now it's drawing from a static dataset: a file logging my gas fillups
       on my '94 Honda Nighthawk.
     </p>
     <div className='container'>
       <div className='row'>
         <div className='col-sm-2'>
           <h4>Dates</h4>
-          {store.map(item => (
+          {store.map(entry => (
             <DayLink
-              item={item}
-              key={item.id}
+              entry={entry}
+              key={entry.id}
               onClick={onClick}
-              selectedDay={selectedDay}
+              active={selectedDay === entry.id}
             />
           ))}
         </div>
         <DayView
-          item={store.find(item => item.id === selectedDay)}
+          entry={store.find(entry => entry.id === selectedDay)}
           className='col-sm-5'
         />
         <Averages
@@ -52,15 +44,12 @@ class App extends Component {
   </div>
 );
 
+
 export default compose(
-  withProps(() => ({
-    store: store,
-  })),
+  withProps({ store }),
   withStateHandlers(() => ({
     selectedDay: 1,
   }), {
-    onClick: () => id => ({
-      selectedDay: id,
-    }),
+    onClick: () => id => ({ selectedDay: id }),
   }),
 )(App);

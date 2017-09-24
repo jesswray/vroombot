@@ -1,23 +1,21 @@
 import React from 'react';
 
-const DayView = ({ item, className }) => (
+const labels = {
+  trip: 'Miles',
+  gallons: 'Gallons',
+  ppg: 'PPG',
+  price: 'Price',
+  odometer: 'Odometer',
+};
+
+const DayView = ({ entry, className }) => (
   <div className={className}>
     <h4>On this day ... </h4>
-    <div>
-      Miles: {item.trip}
-    </div>
-    <div>
-      Gallons: {item.gallons}
-    </div>
-    <div>
-      PPG: {item.ppg}
-    </div>
-    <div>
-      Price: {item.price}
-    </div>
-    <div>
-      Odometer: {item.odometer}
-    </div>
+    {Object.keys(labels).map(key => (
+      <div className={entry[key] ? 'text' : 'text-muted'}>
+        {labels[key]}: {entry[key]}
+      </div>
+    ))}
   </div>
 );
 
