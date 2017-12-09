@@ -1,3 +1,12 @@
-First draft of example project with create-react-app.
+The web interface of [my React mileage widget](http://jesswray.com/vroombot).  The AWS Lambda functions are in the vroombot_lambda and vroombot_fetch repos.
 
-To view locally, clone the repo and `npm start`.
+Created with create-react-app.
+
+To view locally:
+
+```
+git clone https://github.com/wrayjs/vroombot.git
+cd vroombot
+yarn install
+yarn start
+```
