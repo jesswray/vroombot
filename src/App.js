@@ -7,10 +7,10 @@ const url = 'https://6pe59rx5ii.execute-api.us-east-1.amazonaws.com/incoming/{pr
 
 class App extends Component {
   componentDidMount() {
-    fetch(url)
+    fetch(url, { credentials: 'include' })
       .then(response => response.json())
       .then(json => {
-        this.setState({ data: json })
+        this.setState({ data: json && json.Items })
         console.log('parsed json', json)
       })
       .catch(ex => {
@@ -19,9 +19,10 @@ class App extends Component {
   }
 
   render() {
-    return this.state.data && (
+    const data = this.state && this.state.data;
+    return data && (
       <View
-        data={this.state.data}
+        data={data}
       />
     );
   }

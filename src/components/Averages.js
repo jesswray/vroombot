@@ -1,19 +1,15 @@
 import React from 'react';
 import { withProps } from 'recompose';
 
-const sum = store => store.reduce((acc, item) => acc + item.price, 0);
-const startMileage = (store) => store.find(item => item.id === 1).odometer;
-const endMileage = (store) => store.find(item => item.id === store.length).odometer;
+const sum = data => data.reduce((acc, item) => acc + item.dollars, 0);
+const startMileage = (data) => data.sort(item => item.miles)[0].miles
+const endMileage = (data) => data.sort(item => item.miles)[data.length - 1].miles
 
-// We don't know how many gallons we bought when paying with cash,
-// so if the gallons are missing, exclude the 'trip' number.
-const averageMPG = (store) => {
-  // Add up cash trip miles to be deducted from total.
-  const excludedMiles = store.filter(item => !item.gallons).reduce((acc, item) => acc + item.trip, 0);
-  const totalGallons = store.reduce((acc, item) => acc + item.gallons, 0);
-  const validMiles = endMileage(store) - startMileage(store) - excludedMiles;
-  return validMiles/totalGallons;
-};
+const averageMPG = (data) => {
+  const totalMiles = startMileage(data) - endMileage(data);
+  const totalGallons = data.reduce((acc, item) => acc + item.gallons, 0);
+  return totalMiles/totalGallons;
+}
 
 const Averages = ({ average, averageMPG, sum, className }) => (
   <div className={className}>
@@ -24,8 +20,8 @@ const Averages = ({ average, averageMPG, sum, className }) => (
   </div>
 );
 
-export default withProps(({ store }) => ({
-  sum: sum(store),
-  average: sum(store)/store.length,
-  averageMPG: averageMPG(store),
+export default withProps(({ data }) => ({
+  sum: sum(data),
+  average: sum(data)/data.length,
+  averageMPG: averageMPG(data),
 }))(Averages);
