@@ -1,48 +1,30 @@
-import React from 'react';
-import { compose, withProps, withStateHandlers } from 'recompose';
+import React, { Component } from 'react';
 import './App.css';
-import store from './store';
-import DayLink from './components/DayLink';
-import DayView from './components/DayView';
-import Averages from './components/Averages';
+import 'whatwg-fetch';
+import View from './components/View';
 
-const App = ({ store, onClick, selectedDay }) => (
-  <div className="App">
-    <div className="App-header lead">
-      react mileage tracking
-    </div>
-    <div className='container'>
-      <div className='row'>
-        <div className='col-sm-2 col-xs-12'>
-          <h4>Dates</h4>
-          {store.map(entry => (
-            <DayLink
-              entry={entry}
-              key={entry.id}
-              onClick={onClick}
-              active={selectedDay === entry.id}
-            />
-          ))}
-        </div>
-        <DayView
-          entry={store.find(entry => entry.id === selectedDay)}
-          className='col-sm-5 col-xs-6'
-        />
-        <Averages
-          store={store}
-          className='col-sm-5 col-xs-6'
-        />
-      </div>
-    </div>
-  </div>
-);
+const url = 'https://6pe59rx5ii.execute-api.us-east-1.amazonaws.com/incoming/{proxy+}'
 
+class App extends Component {
+  componentDidMount() {
+    fetch(url)
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ data: json })
+        console.log('parsed json', json)
+      })
+      .catch(ex => {
+        console.log('parsing failed', ex)
+      });
+  }
 
-export default compose(
-  withProps({ store }),
-  withStateHandlers(() => ({
-    selectedDay: 1,
-  }), {
-    onClick: () => id => ({ selectedDay: id }),
-  }),
-)(App);
+  render() {
+    return this.state.data && (
+      <View
+        data={this.state.data}
+      />
+    );
+  }
+};
+
+export default App;
