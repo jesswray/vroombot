@@ -8,19 +8,12 @@ import Averages from './components/Averages';
 
 const App = ({ store, onClick, selectedDay }) => (
   <div className="App">
-    <div className="App-header">
-      <h2>Example</h2>
+    <div className="App-header lead">
+      react mileage tracking
     </div>
-    <p>
-      This is an example app to experiment with React.
-    </p>
-    <p>
-      Right now it's drawing from a static dataset: a file logging my gas fillups
-      on my '94 Honda Nighthawk.
-    </p>
     <div className='container'>
       <div className='row'>
-        <div className='col-sm-2'>
+        <div className='col-sm-2 col-xs-12'>
           <h4>Dates</h4>
           {store.map(entry => (
             <DayLink
@@ -33,11 +26,11 @@ const App = ({ store, onClick, selectedDay }) => (
         </div>
         <DayView
           entry={store.find(entry => entry.id === selectedDay)}
-          className='col-sm-5'
+          className='col-sm-5 col-xs-6'
         />
         <Averages
           store={store}
-          className='col-sm-5'
+          className='col-sm-5 col-xs-6'
         />
       </div>
     </div>

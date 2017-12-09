@@ -5,16 +5,14 @@ import { withHandlers } from 'recompose';
 const DayLink = ({ entry, handleClick, key, active }) => {
   const { month, day, year } = entry.date;
   return (
-    <div>
       <Button
-        className='DayLink'
+        className='DayLink-button'
         key={key}
         onClick={handleClick}
         active={active}
       >
         {month}-{day}-{year}
       </Button>
-    </div>
   );
 };
 
