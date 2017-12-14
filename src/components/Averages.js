@@ -1,27 +1,44 @@
 import React from 'react';
 import { withProps } from 'recompose';
 
-const sum = data => data.reduce((acc, item) => acc + item.dollars, 0);
-const startMileage = (data) => data.sort(item => item.miles)[0].miles
-const endMileage = (data) => data.sort(item => item.miles)[data.length - 1].miles
+// data is an array of objects:
+// data: [
+//   {
+//     dollars: 5.42,
+//     miles: 187,
+//     gallons: 2.89,
+//   },
+//   ...
+// ]
+
+// Utility functions for some unavoidable arithmetic.
+const sum = propertyName => data =>
+  data.reduce((acc, item) => acc + item[propertyName], 0);
+
+const totalCost = sum('dollars');
+const totalGallons = sum('gallons');
+
+// These numbers are odometer readings, not miles traveled in a trip.
+// We only need to look at the first and last.
+const totalMiles = data => {
+  const array = data.map(item => item.miles);
+  return Math.max(...array) - Math.min(...array);
+};
 
 const averageMPG = (data) => {
-  const totalMiles = startMileage(data) - endMileage(data);
-  const totalGallons = data.reduce((acc, item) => acc + item.gallons, 0);
-  return totalMiles/totalGallons;
+  return totalMiles(data)/totalGallons(data);
 }
 
-const Averages = ({ average, averageMPG, sum, className }) => (
-  <div className={className}>
-    <h4>Cumulative</h4>
-    <div>Total spent: ${sum.toFixed(2)} </div>
+const Averages = ({ average, averageMPG, totalCost }) => (
+  <div className='Averages'>
+    <div>Total spent: ${totalCost.toFixed(2)} </div>
     <div>Average spent: ${average.toFixed(2)} </div>
     <div>Average MPG: <strong>{Math.floor(averageMPG)}</strong> </div>
   </div>
 );
 
 export default withProps(({ data }) => ({
-  sum: sum(data),
-  average: sum(data)/data.length,
+  totalCost: totalCost(data),
+  average: totalCost(data)/data.length,
   averageMPG: averageMPG(data),
 }))(Averages);

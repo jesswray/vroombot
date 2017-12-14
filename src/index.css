@@ -1,10 +1,23 @@
+a {
+  text-decoration: none;
+}
+
 .App {
-  text-align: center;
+  color: #656B74;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.App-logo img {
+  height: 50px;
+  margin-top: 10px;
 }
 
 .App-header {
-  height: 50px;
-  padding: 20px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  padding: 20px 0 20px 30px;
+  background-color: #656B74;
+  color: #B2CFEA;
 }
 
 body {
@@ -13,15 +26,44 @@ body {
   font-family: sans-serif;
 }
 
-.DayLink-button {
-  width: 150px;
+.View {
+  padding: 20px;
+  display: flex;
 }
 
-.Footer a:not(:last-child)::after {
+.Calendar {
+  padding: 10px;
+  max-width: 30%;
+  min-width: 175px;
+}
+
+.DayView {
+  padding: 10px;
+  max-width: 30%;
+  min-width: 175px;
+}
+
+.Averages {
+  padding: 10px;
+  max-width: 30%;
+  min-width: 175px;
+}
+
+button {
+  border: none;
+}
+
+button:focus {
+  border: none;
+}
+
+.Footer__horizontal-list a:not(:last-child)::after {
     content: ' | ';
 }
 
-.Footer { margin-top: 40px; }
+.Footer {
+  padding: 30px;
+}
 
 .Footer a:hover {
   text-decoration: none;

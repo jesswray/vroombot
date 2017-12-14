@@ -1,20 +1,18 @@
 import React from 'react';
 import moment from 'moment';
-import { Button } from 'react-bootstrap';
-import { withHandlers } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 
 const DayLink = ({ entry, handleClick, active }) => (
-  <Button
-    className='DayLink-button'
+  <button
     onClick={handleClick}
-    active={active}
+    // active={active}
   >
-    <div>
-      {moment(entry.time).format('ll')}
-    </div>
-  </Button>
+    {moment(entry.time).format('ll')}
+  </button>
 );
 
-export default withHandlers({
-  handleClick: ({ onClick, entry }) => () => onClick(entry.time),
-})(DayLink);
+export default compose(
+  withHandlers({
+    handleClick: ({ onClick, entry }) => () => onClick(entry.time),
+  }),
+)(DayLink);

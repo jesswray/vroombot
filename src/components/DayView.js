@@ -8,8 +8,7 @@ const labels = {
 };
 
 const DayView = ({ entry, className }) => (
-  <div className={className}>
-    <h4>On this day ... </h4>
+  <div className='DayView'>
     {Object.keys(labels).map(key => (
       <div key={key} className={entry[key] ? 'text' : 'text-danger'}>
         {labels[key]}: {entry[key]}
