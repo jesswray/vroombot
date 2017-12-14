@@ -1,18 +1,19 @@
 import React from 'react';
 import moment from 'moment';
+import Button from './Button';
 import { compose, withHandlers } from 'recompose';
 
-const DayLink = ({ entry, handleClick, active }) => (
-  <button
+const CalendarDay = ({ entry, handleClick, active }) => (
+  <Button
     onClick={handleClick}
-    // active={active}
+    active={active}
   >
-    {moment(entry.time).format('ll')}
-  </button>
+    {moment(entry.time).format('D')}
+  </Button>
 );
 
 export default compose(
   withHandlers({
     handleClick: ({ onClick, entry }) => () => onClick(entry.time),
   }),
-)(DayLink);
+)(CalendarDay);

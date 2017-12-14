@@ -4,19 +4,25 @@ import Calendar from './Calendar';
 import DayView from './DayView';
 import Averages from './Averages';
 
-const View = ({ data, onClick, selectedTime }) => (
+const View = ({ data, onDayClick, selectedTime }) => (
   <div className='View'>
-    <Calendar
-      data={data}
-      onDayClick={onClick}
-      selectedTime={selectedTime}
-    />
-    <DayView
-      entry={data.find(entry => entry.time === selectedTime)}
-    />
-    <Averages
-      data={data}
-    />
+    <div className='View__column'>
+      <Calendar
+        data={data}
+        onDayClick={onDayClick}
+        selectedTime={selectedTime}
+      />
+    </div>
+    <div className='View__column'>
+      <DayView
+        entry={data.find(entry => entry.time === selectedTime)}
+      />
+    </div>
+    <div className='View__column'>
+      <Averages
+        data={data}
+      />
+    </div>
   </div>
 );
 
@@ -27,6 +33,6 @@ export default compose(
   withStateHandlers(({ data }) => ({
     selectedTime: data && data[0].time,
   }), {
-    onClick: () => time => ({ selectedTime: time }),
+    onDayClick: () => time => ({ selectedTime: time }),
   }),
 )(View);

@@ -5,6 +5,7 @@ a {
 .App {
   color: #656B74;
   font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
 }
 
 .App-logo img {
@@ -23,46 +24,77 @@ a {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 .View {
   padding: 20px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.Calendar {
-  padding: 10px;
+/* Medium screens */
+/* @media all and (max-width: 800px) { */
+  /* .View {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    /* justify-content: space-around;
+  } */
+/* } */
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .View {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+.View__column {
+  padding: 20px;
+  margin: 5px;
+  background-color: lightgray;
   max-width: 30%;
   min-width: 175px;
 }
 
-.DayView {
-  padding: 10px;
-  max-width: 30%;
-  min-width: 175px;
+.CalendarYear > .Button {
+  padding: 0;
 }
 
-.Averages {
-  padding: 10px;
-  max-width: 30%;
-  min-width: 175px;
+.CalendarYear > .Button i {
+  padding: 0 5px;
+  color: #F4835C;
 }
 
-button {
+.App .Button {
+  color: #656B74;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  background: inherit;
+}
+
+.App .Button:focus {
+  border: none;
+  outline: none;
+}
+
+.App .Button:active {
   border: none;
 }
 
-button:focus {
-  border: none;
+.Button--active {
+  color: #F4835C;
 }
 
 .Footer__horizontal-list a:not(:last-child)::after {
-    content: ' | ';
+  content: ' | ';
 }
 
 .Footer {
   padding: 30px;
+  min-width: 175px;
 }
 
 .Footer a:hover {

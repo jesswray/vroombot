@@ -10,14 +10,16 @@ const Calendar = ({ groupedByYearAndMonth, onDayClick, selectedTime }) => (
       <CalendarYear
         key={year}
         year={year}
+        onDayClick={onDayClick}
         months={groupedByYearAndMonth[year]}
+        selectedTime={selectedTime}
       />
     ))}
   </div>
 );
 
 const groupByMonth = year =>
-  _.groupBy(year, item => moment(item.time).month());
+  _.groupBy(year, item => moment(item.time).month()); // off by one?? Investigate ...
 
 export default compose(
   withProps(({ data }) => ({

@@ -1,11 +1,16 @@
 import React from 'react';
-import DayLink from './DayLink';
+import CalendarDay from './CalendarDay';
+import moment from 'moment';
+
+const monthLabels = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
 
 const CalendarMonth = ({ month, days, onDayClick, selectedTime }) => (
   <div className='CalendarMonth'>
-    [{month}]
+    {monthLabels[parseInt(month, 10)]}
     {days.map(entry => (
-      <DayLink
+      <CalendarDay
         entry={entry}
         key={entry.time}
         onClick={onDayClick}
