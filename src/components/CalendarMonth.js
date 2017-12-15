@@ -1,6 +1,5 @@
 import React from 'react';
 import CalendarDay from './CalendarDay';
-import moment from 'moment';
 
 const monthLabels = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'

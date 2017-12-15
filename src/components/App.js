@@ -4,24 +4,23 @@ import logo from '../motorcycle_icon.svg'
 import View from './View';
 import LoadingIndicator from './LoadingIndicator';
 import Footer from './Footer';
-import test from './test';
 
 // The endpoint to call for data
 const url = 'https://6pe59rx5ii.execute-api.us-east-1.amazonaws.com/incoming/{proxy+}'
 
 class App extends Component {
-  state = { data: test }
+  state = { data: null }
 
-  // componentDidMount() {
-  //   fetch(url, { credentials: 'include' }) // required for CORS
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       this.setState({ data: json && json.Items })
-  //     })
-  //     .catch(ex => {
-  //       console.log('Something went wrong: ', ex);
-  //     });
-  // }
+  componentDidMount() {
+    fetch(url, { credentials: 'include' }) // required for CORS
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ data: json && json.Items })
+      })
+      .catch(ex => {
+        console.log('Something went wrong: ', ex);
+      });
+  }
 
   render() {
     const data = this.state.data;
