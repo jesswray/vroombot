@@ -26,7 +26,6 @@ export default compose(
     groupedByYear: _.groupBy(data, item => moment(item.time).year()),
   })),
   withProps(({ groupedByYear }) => {
-    console.log('groupedByYear', groupedByYear);
     const years = Object.keys(groupedByYear);
     var groupedByYearAndMonth = {};
     years.map(year => groupedByYearAndMonth[year] = groupByMonth(groupedByYear[year]));

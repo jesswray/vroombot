@@ -8,7 +8,9 @@ const monthLabels = [
 
 const CalendarMonth = ({ month, days, onDayClick, selectedTime }) => (
   <div className='CalendarMonth'>
-    {monthLabels[parseInt(month, 10)]}
+    <div>
+      {monthLabels[parseInt(month, 10)]}
+    </div>
     {days.map(entry => (
       <CalendarDay
         entry={entry}

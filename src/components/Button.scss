@@ -12,9 +12,8 @@
   &:active {
     border: none;
   }
-}
 
-
-.Button--active {
-  color: #F4835C;
+  &.Button--active {
+    color: #F4835C;
+  }
 }
