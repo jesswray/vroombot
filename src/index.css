@@ -1,70 +1,58 @@
 a {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .App {
   color: #656B74;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 .App-logo img {
   height: 50px;
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
 .App-header {
   font-family: 'Amatic SC', cursive;
   font-size: 40px;
   padding: 20px 0 20px 30px;
   background-color: #656B74;
-  color: #B2CFEA;
-}
+  color: #B2CFEA; }
 
 body {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .View {
   padding: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
+  justify-content: flex-start; }
 
 /* Medium screens */
 /* @media all and (max-width: 800px) { */
-  /* .View {
+/* .View {
     /* When on medium sized screens, we center it by evenly distributing empty space around items */
-    /* justify-content: space-around;
+/* justify-content: space-around;
   } */
 /* } */
-
 /* Small screens */
 @media all and (max-width: 500px) {
   .View {
     /* On small screens, we are no longer using row direction but column */
-    flex-direction: column;
-  }
-}
+    flex-direction: column; } }
 
 .View__column {
   padding: 20px;
   margin: 5px;
   background-color: lightgray;
   max-width: 30%;
-  min-width: 175px;
-}
+  min-width: 175px; }
 
 .CalendarYear > .Button {
-  padding: 0;
-}
+  padding: 0; }
 
 .CalendarYear > .Button i {
   padding: 0 5px;
-  color: #F4835C;
-}
+  color: #F4835C; }
 
 .App .Button {
   color: #656B74;
@@ -72,31 +60,24 @@ body {
   font-size: 14px;
   font-weight: bold;
   border: none;
-  background: inherit;
-}
+  background: inherit; }
 
 .App .Button:focus {
   border: none;
-  outline: none;
-}
+  outline: none; }
 
 .App .Button:active {
-  border: none;
-}
+  border: none; }
 
 .Button--active {
-  color: #F4835C;
-}
+  color: #F4835C; }
 
 .Footer__horizontal-list a:not(:last-child)::after {
-  content: ' | ';
-}
+  content: ' | '; }
 
 .Footer {
   padding: 30px;
-  min-width: 175px;
-}
+  min-width: 175px; }
 
 .Footer a:hover {
-  text-decoration: none;
-}
+  text-decoration: none; }

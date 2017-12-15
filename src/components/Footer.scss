@@ -1,0 +1,12 @@
+.Footer {
+  padding: 30px;
+  min-width: 175px;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.Footer__horizontal-list a:not(:last-child)::after {
+  content: ' | ';
+}

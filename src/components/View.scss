@@ -1,0 +1,31 @@
+.View {
+  color: #000;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.View__column {
+  padding: 20px;
+  margin: 5px;
+  background-color: lightgray;
+  max-width: 30%;
+  min-width: 175px;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .View {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .View {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}

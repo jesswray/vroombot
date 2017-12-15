@@ -1,0 +1,20 @@
+.App .Button {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  background: inherit;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  &:active {
+    border: none;
+  }
+}
+
+
+.Button--active {
+  color: #F4835C;
+}
