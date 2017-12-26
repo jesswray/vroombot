@@ -1,4 +1,4 @@
-The web interface of [my React mileage widget](http://jesswray.com/vroombot).  The AWS Lambda functions are in the vroombot_lambda and vroombot_fetch repos.
+The web interface of [my React mileage widget](http://jesswray.com/vroombot).  The AWS Lambda functions are in the [vroombot_lambda](https://github.com/wrayjs/vroombot_lambda) and [vroombot_fetch](https://github.com/wrayjs/vroombot_fetch) repos.
 
 Created with create-react-app.
 

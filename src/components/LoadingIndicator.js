@@ -1,9 +1,10 @@
 import React from 'react';
+import spinner from './loading.gif';
 
 const LoadingIndicator = () => (
   <div className='LoadingIndicator'>
     <img
-      src='/loading.gif'
+      src={spinner}
       alt='Loading ...'
     />
     <div className="sr-only">Loading ...</div>
